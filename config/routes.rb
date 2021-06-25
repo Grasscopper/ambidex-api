@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :characters, only: [:index]
+  resources :ambidexes, only: [:index, :show]
 end

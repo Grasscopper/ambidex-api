@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
-  def index
-    render json: Character.all
+  def serialized_data(data, serializer)
+   ActiveModelSerializers::SerializableResource.new(data, serializer: serializer)
   end
+
 end

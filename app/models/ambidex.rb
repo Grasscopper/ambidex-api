@@ -1,5 +1,5 @@
 class Ambidex < ApplicationRecord
-  validates :name, presence: true
+  validates :key, presence: true
 
   has_many :games
 end
