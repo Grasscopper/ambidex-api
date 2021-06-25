@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    render json: "justin".to_json
+    render json: "Ambidex Game API".to_json
   end
 end

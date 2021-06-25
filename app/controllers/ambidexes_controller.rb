@@ -1,0 +1,2 @@
+class AmbidexesController < ApplicationController
+end

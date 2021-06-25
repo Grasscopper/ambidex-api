@@ -10,14 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_182403) do
+ActiveRecord::Schema.define(version: 2021_06_25_015018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ambidexes", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
+    t.string "picture", default: ""
     t.integer "trust", null: false
+    t.integer "action", null: false
+    t.bigint "game_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_characters_on_game_id"
+    t.index ["team_id"], name: "index_characters_on_team_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "ambidex_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ambidex_id"], name: "index_games_on_ambidex_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
