@@ -53,7 +53,7 @@ class AmbidexesController < ApplicationController
   end
 
   def show
-    ambidex = Ambidex.find(params["id"])
+    ambidex = Ambidex.find_by(key: params["id"])
     render json: {
       ambidex: serialized_data(ambidex, AmbidexSerializer)
     }
